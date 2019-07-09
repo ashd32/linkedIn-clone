@@ -6,12 +6,16 @@ from locations.models import Country, City
 from .validations import UsernameValidator, validate_birthday
 
 
+def get_user_photo_path(instance, filename):
+    return "photos/{}/{}".format(instance.username, filename)
+
+
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
     def _create_user(
             self, email, username,
-            full_name, birthday, city,
+            full_name, birthday,
             password, **extra_fields):
 
         if not email:
@@ -22,8 +26,6 @@ class UserManager(BaseUserManager):
             raise ValueError("The given full name must be set")
         if not birthday:
             raise ValueError("The given birthday must be set")
-        if not city:
-            raise ValueError("The given city must be set")
 
         email = self.normalize_email(email)
         username = self.model.normalize_username(username)
@@ -32,9 +34,7 @@ class UserManager(BaseUserManager):
             username=username,
             full_name=full_name,
             birthday=birthday,
-            country=country,
-            city=city
-            ** extra_fields
+            **extra_fields
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -50,7 +50,7 @@ class UserManager(BaseUserManager):
         )
 
     def create_superuser(self, email, username, full_name, birthday, password,
-                         **extra_fields):
+                        **extra_fields):
 
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
@@ -61,7 +61,7 @@ class UserManager(BaseUserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(
-            email, username, full_name, birthday, country, city, password,
+            email, username, full_name, birthday, password,
             **extra_fields
         )
 
@@ -76,7 +76,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         validators=[username_validators],
         error_messages={"unique": "A user with that username already exists"}
     )
-
+    photo = models.ImageField(
+        upload_to=get_user_photo_path, null=True, blank=True
+    )
     email = models.EmailField(db_index=True, unique=True)
     full_name = models.CharField(max_length=255)
     birthday = models.DateField(validators=[validate_birthday])

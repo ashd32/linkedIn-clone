@@ -15,7 +15,6 @@ class Office(models.Model):
     company = models.ForeignKey(to=Company, on_delete=models.CASCADE, related_name='offices')
     city = models.ForeignKey(to=City, on_delete=models.SET_NULL, null=True)
     photo = models.ImageField(blank=True, upload_to="offices_photos")
-
-
+    
     def __str__(self):
         return self.company.name

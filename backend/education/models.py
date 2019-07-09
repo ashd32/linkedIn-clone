@@ -15,4 +15,7 @@ class UserEducation(models.Model):
     place = models.ForeignKey(to=Place, on_delete=models.CASCADE)
     qualification = models.CharField(max_length=100)
     graduation_date = models.DateField()
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="educations")
+    user = models.ForeignKey(
+        to=User, on_delete=models.CASCADE, 
+        related_name="educations"
+    )
