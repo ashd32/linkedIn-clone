@@ -15,7 +15,7 @@ class UserManager(BaseUserManager):
 
     def _create_user(
             self, email, username,
-            full_name, birthday,
+            full_name, birthday, city,
             password, **extra_fields):
 
         if not email:
@@ -26,6 +26,8 @@ class UserManager(BaseUserManager):
             raise ValueError("The given full name must be set")
         if not birthday:
             raise ValueError("The given birthday must be set")
+        if not city:
+            raise ValueError("The given city must be set")
 
         email = self.normalize_email(email)
         username = self.model.normalize_username(username)
@@ -34,6 +36,7 @@ class UserManager(BaseUserManager):
             username=username,
             full_name=full_name,
             birthday=birthday,
+            city=city,
             **extra_fields
         )
         user.set_password(password)
@@ -46,10 +49,10 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
         return self._create_user(
-            email, username, full_name, birthday, password, **extra_fields
+            email, username, full_name, birthday, city, password, **extra_fields
         )
 
-    def create_superuser(self, email, username, full_name, birthday, password,
+    def create_superuser(self, email, username, full_name, birthday, password, city,
                         **extra_fields):
 
         extra_fields.setdefault("is_staff", True)
@@ -61,7 +64,7 @@ class UserManager(BaseUserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(
-            email, username, full_name, birthday, password,
+            email, username, full_name, birthday, password, city,
             **extra_fields
         )
 
@@ -92,7 +95,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "full_name", "birthday", ]
+    REQUIRED_FIELDS = ["username", "full_name", "birthday", "city"]
 
     def __str__(self):
         return self.username

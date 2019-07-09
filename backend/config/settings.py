@@ -56,6 +56,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -108,6 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+DJOSER = {
+    'user_create' : 'backend.authentication.serializers.UserCreateSerializer'
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

@@ -1,6 +1,12 @@
+from django.db import IntegrityError, transaction
 from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
+
+from djoser import constants
+from djoser.conf import settings
+from djoser.serializers import UserCreateSerializer
 from rest_framework import serializers
+
 from locations.serializers import CitySerializer
 from .models import User
 
@@ -31,3 +37,7 @@ class UserSerializer(serializers.ModelSerializer):
         if request is not None:
             return request.build_absolute_uri(url)
         return url
+
+
+class UserCreateSerializer(UserCreateSerializer):
+   pass
