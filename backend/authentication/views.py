@@ -10,10 +10,11 @@ from .serializers import UserSerializer
 
 
 class UserViewSet(
-    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet
+    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet,
+    mixins.ListModelMixin,
 ):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (
-        permissions.IsAuthenticated,
-    )
+    # permission_classes = (
+    #     permissions.IsAuthenticated,
+    # )

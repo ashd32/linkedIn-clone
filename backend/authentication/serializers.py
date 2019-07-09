@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
 from djoser import constants
-from djoser.conf import settings
+# from djoser.conf import settings
 from djoser.serializers import UserCreateSerializer
 from rest_framework import serializers
 
@@ -12,7 +12,7 @@ from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(max_length=128, min_length=8, write_only=True)
+   # password = serializers.CharField(max_length=128, min_length=8, write_only=True)
     photo = serializers.SerializerMethodField()
     city = CitySerializer()
     

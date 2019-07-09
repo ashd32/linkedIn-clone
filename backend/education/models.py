@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 class Place(models.Model):
-    title = models.CharField(max_lenght=200)
+    title = models.CharField(max_length=200)
     city = models.ForeignKey(to=City, on_delete=models.SET_NULL, null=True)
 
 

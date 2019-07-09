@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     #---------------
     'authentication',
     'locations',
-    'companies'
+    'companies',
+    'education',
 ]
 
 MIDDLEWARE = [
@@ -141,4 +142,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATICFILE_DIR
 ]
+
 BLANK_PHOTO = "nophoto.jpg"
