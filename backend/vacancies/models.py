@@ -1,0 +1,21 @@
+from django.db import models
+from companies.models import Company
+
+
+class Vacancy(models.Model):
+    title = models.CharField(max_length=200, verbose_name="title")
+    description = models.TextField(verbose_name="description")
+    position = models.CharField(verbose_name="position", max_length=150)
+    company = models.ForeignKey(
+        to=Company, 
+        on_delete=models.CASCADE,
+        verbose_name="company",
+        related_name="vacancies"
+    )
+    publish_date = models.DateField(auto_add_now=True, verbose_name="publish date")
+    update_date = models.DateField(auto_add_now=True, verbose_name="last update")
+    
+    def __str__(self):
+        return self.title
+
+    
