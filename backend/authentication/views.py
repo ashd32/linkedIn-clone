@@ -7,14 +7,16 @@ from djoser.compat import get_user_email
 
 from .models import User
 from .serializers import UserSerializer
+from .permissions import AccountPermissions
 
 
 class UserViewSet(
     mixins.RetrieveModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet,
     mixins.ListModelMixin,
 ):
+    
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (
-    #     permissions.IsAuthenticated,
-    # )
+    permission_classes = (
+        AccountPermissions,
+    )
