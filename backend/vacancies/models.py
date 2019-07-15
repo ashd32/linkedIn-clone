@@ -19,3 +19,17 @@ class Vacancy(models.Model):
         return self.title
 
     
+class Experience(models.Model):
+    user = models.ForeignKey(
+        to=User, 
+        on_delete=models.CASCADE, 
+        related_name='experiences')
+    position = models.CharField(max_length=100)
+    start_date = models.DateField()
+    finish_data = models.DateField(blank=True)
+    company = models.ForeignKey(to=Company, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.position
+
+

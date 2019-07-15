@@ -15,7 +15,7 @@ class UserManager(BaseUserManager):
 
     def _create_user(
             self, email, username,
-            full_name, birthday, city,
+            full_name, birthday,
             password, **extra_fields):
 
         if not email:
@@ -26,8 +26,7 @@ class UserManager(BaseUserManager):
             raise ValueError("The given full name must be set")
         if not birthday:
             raise ValueError("The given birthday must be set")
-        if not city:
-            raise ValueError("The given city must be set")
+       
 
         email = self.normalize_email(email)
         username = self.model.normalize_username(username)
@@ -36,7 +35,6 @@ class UserManager(BaseUserManager):
             username=username,
             full_name=full_name,
             birthday=birthday,
-            city=city,
             **extra_fields
         )
         user.set_password(password)
@@ -44,15 +42,15 @@ class UserManager(BaseUserManager):
         return user
 
     def create_user(self, email, username, full_name, birthday,
-                    city, password=None, **extra_fields):
+                    password=None, **extra_fields):
 
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
         return self._create_user(
-            email, username, full_name, birthday, city, password, **extra_fields
+            email, username, full_name, birthday, password, **extra_fields
         )
 
-    def create_superuser(self, email, username, full_name, birthday, password, city,
+    def create_superuser(self, email, username, full_name, birthday, password,
                         **extra_fields):
 
         extra_fields.setdefault("is_staff", True)
@@ -64,7 +62,7 @@ class UserManager(BaseUserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(
-            email, username, full_name, birthday, password, city,
+            email, username, full_name, birthday, password,
             **extra_fields
         )
 
@@ -95,7 +93,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "full_name", "birthday", "city"]
+    REQUIRED_FIELDS = ["username", "full_name", "birthday",]
 
     def __str__(self):
         return self.username
