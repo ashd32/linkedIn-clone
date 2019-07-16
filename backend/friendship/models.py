@@ -30,7 +30,6 @@ class FriendshipRequest(models.Model):
         )
 
     def accept(self):
-        # services.befriend(self.from_user, self.to_user)
         Friendship.objects.befriend(self.from_user, self.to_user)
         self.accepted = True
         self.save()
@@ -46,6 +45,7 @@ class FriendshipRequest(models.Model):
         # signals.friendship_cancelled.send(sender=self)
         self.delete()
 
+    
     
 class FriendshipManager(models.Manager):
 

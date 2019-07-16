@@ -152,3 +152,8 @@ STATICFILES_DIRS = [
 ]
 
 BLANK_PHOTO = "nophoto.jpg"
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
