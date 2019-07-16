@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions
 from .models import City, Country
 from .serializers import CountrySerializer, CitySerializer
+from .pagination import LocationsResultSetPagination
 
 
 class CountryViewSet(viewsets.ModelViewSet):
@@ -9,6 +10,8 @@ class CountryViewSet(viewsets.ModelViewSet):
     # permission_classes = (
     #     permissions.IsAuthenticated
     # )
+    pagination_class = LocationsResultSetPagination
+
 
 
 class CityViewSet(viewsets.ModelViewSet):
@@ -17,4 +20,5 @@ class CityViewSet(viewsets.ModelViewSet):
     # permission_classes = (
     #     permissions.IsAuthenticated
     # )
+    pagination_class = LocationsResultSetPagination
     

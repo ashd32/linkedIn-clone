@@ -1,5 +1,9 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 from companies.models import Company
+
+
+User = get_user_model()
 
 
 class Vacancy(models.Model):
@@ -28,6 +32,8 @@ class Experience(models.Model):
     start_date = models.DateField()
     finish_data = models.DateField(blank=True)
     company = models.ForeignKey(to=Company, on_delete=models.CASCADE)
+    about = models.TextField()
+
 
     def __str__(self):
         return self.position

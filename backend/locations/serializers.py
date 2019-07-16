@@ -7,7 +7,7 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = (
-            'id',
+            'city_id',
             'name',
             'parent_id',
         )
@@ -18,7 +18,7 @@ class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
         fields = (
-            'id',
+            'country_id',
             'name',
             'cities'
         )

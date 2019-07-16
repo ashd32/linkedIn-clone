@@ -16,3 +16,4 @@ class AccountPermissions(ActionPermission):
     update_perms = IsAccountOwner
     delete_perms = IsAccountOwner
     list_perms = IsAuthenticated
+    read_perms = AllowAny
