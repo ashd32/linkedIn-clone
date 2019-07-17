@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
-# from . import services
+from . import signals
 import datetime
 
 
@@ -29,22 +29,6 @@ class FriendshipRequest(models.Model):
             ('to_user', 'from_user'),
         )
 
-    def accept(self):
-        Friendship.objects.befriend(self.from_user, self.to_user)
-        self.accepted = True
-        self.save()
-        # Add signal
-        # FriendshipRequest.objects.filter(from_user=user1,
-        #                                  to_user=user2).delete()
-
-    def decline(self):
-        # signals.friendship_declined.send(sender=self)
-        self.delete()
-
-    def cancel(self):
-        # signals.friendship_cancelled.send(sender=self)
-        self.delete()
-
     
     
 class FriendshipManager(models.Manager):
@@ -70,3 +54,10 @@ def create_user(sender, instance, created, **kwargs):
     if created:
         instance.friendship = Friendship.objects.create(user=instance)
     instance.friendship.save()
+
+
+@receiver(signals.friendship_request_status_changed)
+def friendship_request_сhanged(sender, friendship_request, attributes, **kwargs):
+    if friendship_request.accepted == True:
+        friendship_request.delete()
+        print("deleted")
