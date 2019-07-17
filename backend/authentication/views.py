@@ -1,6 +1,7 @@
 from django.utils.crypto import get_random_string
 from rest_framework import viewsets, mixins, status, permissions, generics
-
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from djoser import signals
 from djoser.conf import settings as djoser_settings
 from djoser.compat import get_user_email
@@ -20,3 +21,11 @@ class UserViewSet(
     permission_classes = (
         AccountPermissions,
     )
+
+    @action(detail=True, methods=['GET'])
+    def me(self, request):
+        me = request.user
+        serializer = self.get_serializer(me)
+        return Response(serializer.data)
+
+    

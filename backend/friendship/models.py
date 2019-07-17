@@ -21,7 +21,8 @@ class FriendshipRequest(models.Model):
         on_delete=models.CASCADE,
     )
     message = models.CharField(max_length=200, blank=True)
-    created = models.DateTimeField(default=datetime.datetime.now, editable=False)
+    created = models.DateTimeField(
+        default=datetime.datetime.now, editable=False)
     accepted = models.BooleanField(default=False)
 
     class Meta:
@@ -29,8 +30,7 @@ class FriendshipRequest(models.Model):
             ('to_user', 'from_user'),
         )
 
-    
-    
+
 class FriendshipManager(models.Manager):
 
     def friends_of(self, user, shuffle=False):
@@ -39,16 +39,20 @@ class FriendshipManager(models.Manager):
             queryset = queryset.order_by('?')
         return queryset
 
-        
+
 class Friendship(models.Model):
-    user = models.OneToOneField(to=User, related_name='friendship', on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        to=User,
+        related_name='friendship',
+        on_delete=models.CASCADE
+    )
     friends = models.ManyToManyField(to='self', symmetrical=True)
     objects = FriendshipManager()
 
     def friend_count(self):
         return self.friends.count()
 
-   
+
 @receiver(post_save, sender=User)
 def create_user(sender, instance, created, **kwargs):
     if created:
@@ -60,4 +64,13 @@ def create_user(sender, instance, created, **kwargs):
 def friendship_request_сhanged(sender, friendship_request, attributes, **kwargs):
     if friendship_request.accepted == True:
         friendship_request.delete()
-        print("deleted")
+
+
+@receiver(signals.friendship_request_canceled)
+def friendship_request_canceled(sender, friendship_request, attributes, **kwargs):
+    friendship_request.delete()
+
+
+@receiver(signals.friendship_request_declined)
+def friendship_request_declined(sender, friendship_request, attributes, **kwargs):
+    friendship_request.delete()
