@@ -1,0 +1,21 @@
+WARNING:django.request:Unauthorized: /api/users/
+WARNING:django.request:Unauthorized: /api/users/
+ERROR:django.request:Internal Server Error: /api/auth/jwt/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/home/maxim/social/backend/config/middleware.py", line 19, in process_request
+    request.req_body = request.req_body
+AttributeError: 'WSGIRequest' object has no attribute 'req_body'
+ERROR:django.request:Internal Server Error: /api/auth/jwt/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/home/maxim/social/backend/config/middleware.py", line 19, in process_request
+    request.req_body = request.req_body
+AttributeError: 'WSGIRequest' object has no attribute 'req_body'
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/settings.py changed, reloading.

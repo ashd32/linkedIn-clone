@@ -12,8 +12,7 @@ from .permissions import AccountPermissions
 
 
 class UserViewSet(
-    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet,
-    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet,
 ):
     
     queryset = User.objects.all()
@@ -22,7 +21,7 @@ class UserViewSet(
         AccountPermissions,
     )
 
-    @action(detail=True, methods=['GET'])
+    @action(detail=False, methods=['GET'])
     def me(self, request):
         me = request.user
         serializer = self.get_serializer(me)
