@@ -19,3 +19,621 @@ Traceback (most recent call last):
     request.req_body = request.req_body
 AttributeError: 'WSGIRequest' object has no attribute 'req_body'
 INFO:django.utils.autoreload:/home/maxim/social/backend/config/settings.py changed, reloading.
+WARNING:django.request:Unauthorized: /api/users/
+WARNING:django.request:Unauthorized: /api/users/me/
+WARNING:django.request:Unauthorized: /api/users/
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 49, in process_response
+    print(log_data)
+UnboundLocalError: local variable 'log_data' referenced before assignment
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+WARNING:django.request:Unauthorized: /api/users/
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+WARNING:django.request:Unauthorized: /api/users/
+WARNING:django.request:Unauthorized: /api/users/
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+WARNING:django.request:Unauthorized: /api/users/
+WARNING:django.request:Unauthorized: /api/users/
+WARNING:django.request:Unauthorized: /api/users/
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+WARNING:django.request:Unauthorized: /api/users/
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+WARNING:django.request:Unauthorized: /api/users/
+WARNING:django.request:Unauthorized: /api/users/
+ERROR:django.request:Internal Server Error: /api/cities/
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/home/maxim/social/backend/config/middleware.py", line 19, in process_request
+    request.req_body = request.req_body
+AttributeError: 'WSGIRequest' object has no attribute 'req_body'
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:config.middleware:Unhandled Exception
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: locations_city.country_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/maxim/social/backend/config/middleware.py", line 57, in process_exception
+    raise exception
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/mixins.py", line 26, in perform_create
+    serializer.save()
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/query.py", line 422, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1335, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: locations_city.country_id
+ERROR:django.request:Internal Server Error: /api/cities/
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 49, in process_response
+    response=response)
+TypeError: extract_log_info() missing 1 required positional argument: 'exception'
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:config.middleware:Unhandled Exception
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: locations_city.country_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/maxim/social/backend/config/middleware.py", line 57, in process_exception
+    raise exception
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/mixins.py", line 26, in perform_create
+    serializer.save()
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/rest_framework/serializers.py", line 943, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/query.py", line 422, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1335, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 383, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: locations_city.country_id
+ERROR:django.request:Internal Server Error: /api/cities/
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 49, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 33, in extract_log_info
+    str(request.req_body, 'utf-8')
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/settings.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 51, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 35, in extract_log_info
+    str(request.req_body, 'utf-8')
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+WARNING:django.request:Not Found: /cities
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 51, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 35, in extract_log_info
+    str(request.req_body, 'utf-8')
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 52, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.req_body, 'utf-8')
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 49, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    str(request.req_body, 'utf-8')
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    request.req_body, 'utf-8'
+TypeError: loads() takes 1 positional argument but 2 were given
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 46, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 33, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 47, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 47, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 34, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 35, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 35, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 35, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 48, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 35, in extract_log_info
+    log_data['request_body'] = json.loads(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 49, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.req_body), 'utf-8')
+TypeError: loads() takes 1 positional argument but 2 were given
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.req_body), 'utf-8'
+TypeError: loads() takes 1 positional argument but 2 were given
+WARNING:django.request:Unauthorized: /api/users/
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.req_body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+ERROR:django.request:Internal Server Error: /api/auth/users/create
+Traceback (most recent call last):
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/maxim/social/.env/lib/python3.6/site-packages/django/utils/deprecation.py", line 96, in __call__
+    response = self.process_response(request, response)
+  File "/home/maxim/social/backend/config/middleware.py", line 50, in process_response
+    response=response)
+  File "/home/maxim/social/backend/config/middleware.py", line 36, in extract_log_info
+    str(request.body)
+  File "/usr/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+WARNING:django.request:aaaaaaa
+WARNING:django.request:Bad Request: /api/auth/users/create
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
+INFO:django.utils.autoreload:/home/maxim/social/backend/config/middleware.py changed, reloading.
