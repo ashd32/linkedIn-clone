@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #---------------
     'corsheaders',
     'rest_framework',
     'django_filters',
@@ -135,7 +136,9 @@ ALLOWED_HOSTS = ['*']
 JWT_AUTH = {"JWT_EXPIRATION_DELTA": datetime.timedelta(days=1)}
 
 DJOSER = {
-    'user_create' : 'backend.authentication.serializers.UserCreateSerializer'
+    'SERIALIZERS': {
+        'user_create' : 'authentication.serializers.UserCreateSerializer'
+    }
 }
 
 # Internationalization

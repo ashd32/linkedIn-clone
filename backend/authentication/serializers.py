@@ -40,4 +40,15 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserCreateSerializer(UserCreateSerializer):
-   pass
+    class Meta:
+        model = User
+        fields = tuple(User.REQUIRED_FIELDS) + (
+            User.USERNAME_FIELD,
+            User._meta.pk.name,
+            'password',
+            'city',
+        )
+
+    # def create(self, validated_data):
+    #     import pdb; pdb.set_trace()
+    #     return super().create(validated_data)
