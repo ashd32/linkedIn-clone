@@ -39,7 +39,6 @@ class RequestLogMiddleware(MiddlewareMixin):
                 if response['content-type'] == 'aplication/json':
                     response_body = response.content
                     log_data['response_body'] = response_body
-        print(log_data)
         return log_data
 
     def process_response(self, request, response):
@@ -50,7 +49,7 @@ class RequestLogMiddleware(MiddlewareMixin):
                                                  response=response)
                 request_logger.debug(msg='work', extra=log_data)
                 request_logger.warning("aaaaaaa")
-                print(log_data)
+
         return response
 
     def process_exception(self, request, exception):

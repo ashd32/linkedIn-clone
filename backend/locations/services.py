@@ -47,6 +47,4 @@ def load_locations():
         cities = g.get_all_cities_from_country(country['id'])
         data_handler.save_cities_list(cities)
 
-    
-
-    
+         

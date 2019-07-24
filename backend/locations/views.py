@@ -1,4 +1,5 @@
 from rest_framework import viewsets, permissions
+from django_filters import rest_framework as filters
 from .models import City, Country
 from .serializers import CountrySerializer, CitySerializer
 from .pagination import LocationsResultSetPagination
@@ -10,6 +11,7 @@ class CountryViewSet(viewsets.ModelViewSet):
     # permission_classes = (
     #     permissions.IsAuthenticated
     # )
+   
     pagination_class = LocationsResultSetPagination
 
 
@@ -20,5 +22,7 @@ class CityViewSet(viewsets.ModelViewSet):
     # permission_classes = (
     #     permissions.IsAuthenticated
     # )
-    pagination_class = LocationsResultSetPagination
+    # pagination_class = LocationsResultSetPagination
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ('country',)
     
