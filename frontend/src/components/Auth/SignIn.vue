@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="onSubmit" class="signin">
     <h1>Sign In Form</h1>
-    <input type="text" id="login" placeholder="email" v-model="email" />
-    <input type="password" id="password" placeholder="password" v-model="password" />
+    <input type="text" id="login" placeholder="email" v-model="credentials.email" />
+    <input type="password" id="password" placeholder="password" v-model="credentials.password" />
     <button class="signin-btn" :disabled="!ValidationFields">Sign In</button>
   </form>
 </template>
@@ -11,8 +11,10 @@
 export default {
   data() {
     return {
-      email: "",
-      password: ""
+      credentials: {
+        email: "",
+        password: ""
+      }
     };
   },
   methods: {
@@ -20,7 +22,10 @@ export default {
   },
   computed: {
     ValidationFields() {
-      if (this.email.length !== 0 && this.password.length !== 0) {
+      if (
+        this.credentials.email.length !== 0 &&
+        this.credentials.password.length !== 0
+      ) {
         return true;
       }
       return false;

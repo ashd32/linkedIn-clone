@@ -4,7 +4,7 @@
     <input type="text" placeholder="login" v-model="credential.username" />
     <input type="text" placeholder="email" v-model="credential.email" />
     <input type="text" placeholder="full name" v-model="credential.full_name" />
-    <input type="date" placeholder="birthday" v-model="credential.birthday">
+    <input type="date" placeholder="birthday" name="birthday" v-model="credential.birthday">
     <select name="countries" @change="onChangeCountry" v-model="country">
       <option
         v-for="country in countries"
@@ -94,6 +94,7 @@ export default {
   margin-top: 10px;
   width: 100%;
 }
+
 .signup select {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -103,4 +104,5 @@ export default {
 .signup-btn {
   margin: 10px;
 }
+
 </style>
