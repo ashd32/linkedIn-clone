@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_filters',
     'djoser',
     'django_extensions',
+    'anymail',
     #---------------
     'authentication',
     'locations',
@@ -137,10 +138,19 @@ JWT_AUTH = {"JWT_EXPIRATION_DELTA": datetime.timedelta(days=1)}
 
 DJOSER = {
     'SERIALIZERS': {
-        'user_create' : 'authentication.serializers.UserCreateSerializer'
-    }
+        'user_create' : 'authentication.serializers.UserCreateSerializer',
+    },
+    'SEND_CONFIRMATION_EMAIL': True,
 }
 
+ANYMAIL = {
+    "MAILGUN_API_KEY": "e4fa35168067db31e11f6ebc33b467eb-c50f4a19-efc5f28f",
+    "MAILGUN_SENDER_DOMAIN": "sandboxfe1c7bdd836043ab8e35f1a1d2de62f9.mailgun.org"
+}
+
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+DEFAULT_FROM_EMAIL = "maxim226356@mail.ru"
+# SERVER_EMAIL = ""
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 

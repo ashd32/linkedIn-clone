@@ -17,9 +17,9 @@ class UserViewSet(
     
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (
-        AccountPermissions,
-    )
+    # permission_classes = (
+    #     AccountPermissions,
+    # )
 
     @action(detail=False, methods=['GET'])
     def me(self, request):

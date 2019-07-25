@@ -48,7 +48,3 @@ class UserCreateSerializer(UserCreateSerializer):
             'password',
             'city',
         )
-
-    # def create(self, validated_data):
-    #     import pdb; pdb.set_trace()
-    #     return super().create(validated_data)
