@@ -47,12 +47,14 @@ INSTALLED_APPS = [
     'djoser',
     'django_extensions',
     'anymail',
+    'channels',
     #---------------
     'authentication',
     'locations',
     'companies',
     'education',
-    'friendship'
+    'friendship',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -97,7 +99,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
+ASGI_APPLICATION = 'config.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

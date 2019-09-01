@@ -23,6 +23,7 @@ apipatterns = [
     path('', include('authentication.urls')),
     path('', include('locations.urls')),
     path('', include('companies.urls')),
+    path('', include('chat.urls'))
 ]
 
 

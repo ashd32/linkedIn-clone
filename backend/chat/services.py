@@ -1,0 +1,1 @@
+def create_thread_with_one_user(creator, participant)
